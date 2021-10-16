@@ -1,6 +1,9 @@
 package pboW5;
 
+import java.util.Scanner;
+
 public class Restaurant {
+	public static Scanner scan;
 	//data
 	private String[] nama_makanan; //mengubah tipe
 	private double[] harga_makanan; //mengubah tipe
@@ -25,6 +28,18 @@ public class Restaurant {
 		for(int i =0; i<=id;i++){
 			if(!isOutOfStock(i)){ // mendeteksi stok 0 atau tidak
 				System.out.println(nama_makanan[i] +"["+stok[i]+"]"+"\tRp. "+harga_makanan[i]);
+			}
+		}
+	}
+	
+	public void Pemesanan () {
+		System.out.println("Apa makanan yang mau dibeli : ");
+		String Nama = scan.next();
+		for (int i = 0; i <= id; i++) {
+			if (nama_makanan[i].contains(Nama)) {
+				System.out.println("Berapa yang ingin dibeli : ");
+				int j = scan.nextInt();
+				stok[i] = stok[i] - j;
 			}
 		}
 	}
